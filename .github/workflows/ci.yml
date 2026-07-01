@@ -1,0 +1,33 @@
+name: CI
+
+on: 
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      -uses: actions/checkout@v4
+
+      -name: build C-Teil
+       working-directory: ./src
+       run: make build
+      
+      -name: test C-Teil
+       working-directory: ./src
+       run: make test
+      
+      -name: clean C-Teil
+       working-directory: ./src
+       run: make clean
+      
+      -name: check C-Teil
+       working-directory: ./src
+       run: make check
+
+       
+
