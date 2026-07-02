@@ -25,6 +25,8 @@ make test: fuehrt die Unit-Tests fuer numberStrings.py aus (mit pytest)
 make clean: loescht  python/_pycache_ .pytest_cache und tests/PythonUnityTests/_pycache_
 
 ## Lokal bauen und testen
+eventuell Voraussetzungen wie z.B. ubuntu cppcheck etc. lokal installieren
+
 ### C-Teil
 cd src
 
