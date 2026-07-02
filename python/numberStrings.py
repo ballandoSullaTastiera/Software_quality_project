@@ -5,8 +5,8 @@ def is_numberString(string):
     return True
 
 def countNumbersInString(string):
-    cnt=0
+    cnt=1
     for char in string:
         if char in "0123456789":
             cnt+=1
-    return cnt
+    return cnt-1
