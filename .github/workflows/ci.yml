@@ -11,23 +11,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      -uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      -name: build C-Teil
-       working-directory: ./src
-       run: make build
+      - name: build C-Teil
+        working-directory: ./src
+        run: make build
       
-      -name: test C-Teil
-       working-directory: ./src
-       run: make test
+      - name: test C-Teil
+        working-directory: ./src
+        run: make test
       
-      -name: clean C-Teil
-       working-directory: ./src
-       run: make clean
+      - name: static analysis C-Teil
+        working-directory: ./src
+        run: make check
+
+      - name: install Python-Teil
+        working-directory: ./python
+        run: make install
       
-      -name: check C-Teil
-       working-directory: ./src
-       run: make check
+      - name: test Python-Teil
+        working-directory: ./python
+        run: make test
+      
+      - name: static analysis Python-Teil
+        working-directory: ./python
+        run: make check
 
        
 

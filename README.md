@@ -12,7 +12,7 @@ make check: fuehrt statische Codeanalyse aller in src und Unterverzeichnissen vo
 ### Python-Teil
 make: siehe make install
 make install: installiert requirements.txt
-make check: 
+make check: fuehrt statische Codeanalyse aller direkt in python/ liegenden .py Dateien aus (mit Pylint)
 make test: fuehrt die Unit-Tests fuer numberStrings.py aus (mit pytest)
 make clean: loescht  python/_pycache_ .pytest_cache und tests/PythonUnityTests/_pycache_
 
