@@ -13,18 +13,44 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install Cppcheck
+        run: sudo apt-get update && sudo apt-get install -y cppcheck
+
       - name: build C-Teil
         working-directory: ./src
         run: make build
-      
+
+
+  unitTest_C:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Cppcheck
+        run: sudo apt-get update && sudo apt-get install -y cppcheck
+
       - name: test C-Teil
         working-directory: ./src
         run: make test
       
+
+  staticAnalysis_C:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Cppcheck
+        run: sudo apt-get update && sudo apt-get install -y cppcheck
+
       - name: static analysis C-Teil
         working-directory: ./src
         run: make check
+  Python-Teil:
+    runs-on: ubuntu-latest
 
+    steps:
       - name: install Python-Teil
         working-directory: ./python
         run: make install
