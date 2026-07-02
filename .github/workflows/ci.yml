@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  build_C:
+  CPart:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,49 +16,34 @@ jobs:
       - name: Install Cppcheck
         run: sudo apt-get update && sudo apt-get install -y cppcheck
 
-      - name: build C-Teil
+      - name: build C-Part
         working-directory: ./src
         run: make build
 
 
-  unitTest_C:
-    runs-on: ubuntu-latest
-    needs: build_C
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install Cppcheck
-        run: sudo apt-get update && sudo apt-get install -y cppcheck
-
-      - name: test C-Teil
+      - name: test C-Part
         working-directory: ./src
         run: make test
       
 
-  staticAnalysis_C:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-     # - name: Install Cppcheck
-     #   run: sudo apt-get update && sudo apt-get install -y cppcheck
-
-      - name: static analysis C-Teil
+      - name: static analysis C-Part
         working-directory: ./src
         run: make check
-  Python-Teil:
+
+
+  PythonPart:
     runs-on: ubuntu-latest
 
     steps:
-      - name: install Python-Teil
+      - name: install Python-Part
         working-directory: ./python
         run: make install
       
-      - name: test Python-Teil
+      - name: test Python-Part
         working-directory: ./python
         run: make test
       
-      - name: static analysis Python-Teil
+      - name: static analysis Python-Part
         working-directory: ./python
         run: make check
 
