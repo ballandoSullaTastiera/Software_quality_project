@@ -9,10 +9,12 @@ build:
 	cmake --build build
 
 test: 
-	cmake --build build --target test -- ARGS="--output-on-failure"
+	cmake --build build --target test -- ARGS="-V"
 	
 clean:
 	cmake -E remove_directory build
 
-check:
+check: 
+	cmake -S . -B build
+	cmake --build build --target cppcheck_analysis
 	

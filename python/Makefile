@@ -1,7 +1,16 @@
-test: tests.out
-	@./tests.out
-	
+PYTHON = python3
 
-tests.out: tests/PythonUnityTests/pythonTest.py# src/ringbuffer.c src/ringbuffer.h
-	@echo Compiling $@
-	# @$(CC) $(CFLAGS) ./prime.c tests/CUnityTests/vendor/unity.c tests/CUnityTests/prime_test.c -o tests.out
+.PHONY: all install test clean check
+
+all: install
+
+install:
+	python3 -m pip install -r requirements.txt
+
+test:
+	PYTHONPATH=. python3 -m pytest ../tests/PythonUnityTests/
+
+clean:
+	rm -rf __pycache__
+	rm -rf ../.pytest_cache
+	rm -rf ../tests/PythonUnityTests/__pycache__
