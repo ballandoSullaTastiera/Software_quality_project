@@ -1,6 +1,6 @@
 def is_numberString(string):
     for char in string:
-        if not(char in "0123456789"):
+        if not char in "0123456789":
             return False
     return True
 

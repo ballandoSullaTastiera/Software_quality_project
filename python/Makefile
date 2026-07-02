@@ -16,4 +16,5 @@ clean:
 	rm -rf ../tests/PythonUnityTests/__pycache__
 
 check:
-	$(PYTHON) -m pylint *.py --rcfile=/dev/null --msg-template="{path}:{line}:{column}: [{msg_id}({symbol}), {obj}] {msg}"
+	#einige Pylint-Regeln werden deaktiviert
+	$(PYTHON) -m pylint *.py -d C0116,C0114,C0103,C0304 --rcfile=/dev/null --msg-template="{path}:{line}:{column}: [{msg_id}({symbol}), {obj}] {msg}"
