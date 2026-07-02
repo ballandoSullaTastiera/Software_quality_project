@@ -9,4 +9,4 @@ def countNumbersInString(string):
     for char in string:
         if char in "0123456789":
             cnt+=1
-    return cnt
+    return cnt-1
